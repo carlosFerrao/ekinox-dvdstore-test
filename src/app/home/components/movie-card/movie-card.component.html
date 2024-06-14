@@ -1,0 +1,31 @@
+<mat-card class="card">
+  <mat-card-header>
+    <mat-card-title>{{ movieInfo().title }}</mat-card-title>
+    <mat-card-subtitle
+      >Price {{ movieInfo().price | currency : "EUR" }}</mat-card-subtitle
+    >
+  </mat-card-header>
+  <img
+    class="poster"
+    mat-card-image
+    [src]="movieInfo().poster"
+    alt="Photo of a Shiba Inu"
+  />
+  <div class="content">
+    <mat-card-content>
+      <p>
+        {{ movieInfo().description }}
+      </p>
+    </mat-card-content>
+    <mat-card-actions class="card-actions">
+      <button
+        mat-flat-button
+        color="primary"
+        (click)="addNewItemToCart(movieInfo())"
+      >
+        <mat-icon>shopping_cart</mat-icon>
+        Add to cart
+      </button>
+    </mat-card-actions>
+  </div>
+</mat-card>

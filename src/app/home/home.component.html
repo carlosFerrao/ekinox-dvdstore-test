@@ -1,0 +1,16 @@
+<div class="home">
+  <div class="container">
+    <div class="header">
+      <div class="banner">
+        <img src="./movie-promotion.jpg" />
+      </div>
+    </div>
+    <div class="body">
+      <div class="movies">
+        @for (movie of moviesList$ | async; track $index) {
+        <app-movie-card [movieInfo]="movie"></app-movie-card>
+        }
+      </div>
+    </div>
+  </div>
+</div>

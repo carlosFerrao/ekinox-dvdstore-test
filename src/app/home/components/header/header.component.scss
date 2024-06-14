@@ -1,0 +1,26 @@
+.toolbar {
+  display: flex;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  .toolbar-logo {
+    width: 200px;
+  }
+  .toolbar-title {
+    font-weight: bold;
+    display: flex;
+    flex-grow: 4;
+    justify-content: center;
+  }
+  .toolbar-cart {
+    flex-grow: 1;
+    display: flex;
+    justify-content: end;
+    cursor: pointer;
+  }
+  .mat-toolbar-row {
+    padding: 0 32px !important;
+  }
+}

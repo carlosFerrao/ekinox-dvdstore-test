@@ -1,0 +1,121 @@
+<div class="cart">
+  <div class="header">
+    <div class="back-div">
+      <button mat-flat-button color="primary" (click)="goBack()">
+        <mat-icon>arrow_back</mat-icon>
+        Go Back
+      </button>
+    </div>
+
+    <div class="title-div">
+      <span class="title">Your Shopping Cart</span>
+    </div>
+  </div>
+  @if (this.allMovies().length >0) {
+  <div>
+    <table mat-table [dataSource]="dataSource!" class="mat-elevation-z8">
+      <ng-container matColumnDef="movie">
+        <th mat-header-cell *matHeaderCellDef>Movie</th>
+        <td mat-cell *matCellDef="let element">
+          <img class="movie-poster" [src]="element.product.poster" />
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef width="50%">Title</th>
+        <td mat-cell *matCellDef="let element" width="50%">
+          {{ element.product.title }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef>Price</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.product.price * element.quantity }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="quantity">
+        <th mat-header-cell *matHeaderCellDef>Quantity</th>
+        <td mat-cell *matCellDef="let element">
+          <div class="quantity">
+            <mat-icon (click)="addOrRemoveProduct(element.product.id, false)"
+              >remove</mat-icon
+            >
+            <input
+              type="number"
+              class="input-box"
+              [value]="element.quantity"
+              min="1"
+              max="10"
+            />
+            <mat-icon (click)="addOrRemoveProduct(element.product.id, true)"
+              >add</mat-icon
+            >
+          </div>
+          <p class="info">Stock available: {{ 10 - element.quantity }}</p>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+  } @else {
+  <div class="empty-cart-div">
+    <mat-icon>shopping_cart</mat-icon>
+    <span>Your cart is empty !</span>
+  </div>
+
+  } @if (this.moviesInPromotion().length >1) {
+  <div class="discount-div">
+    <div class="discount">
+      <span>Discounts:</span>
+    </div>
+
+    <table
+      mat-table
+      [dataSource]="moviesInPromotion()!"
+      class="mat-elevation-z8"
+    >
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef>Title</th>
+        <td mat-cell *matCellDef="let element">{{ element.product.title }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef>Price</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.product.price * element.quantity }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="quantity">
+        <th mat-header-cell *matHeaderCellDef>Quantity</th>
+        <td mat-cell *matCellDef="let element">{{ element.quantity }}</td>
+      </ng-container>
+      <ng-container matColumnDef="discount">
+        <th mat-header-cell *matHeaderCellDef>Discount</th>
+        <td mat-cell *matCellDef="let element">{{ element.quantity }}</td>
+      </ng-container>
+      <ng-container matColumnDef="total">
+        <th mat-header-cell *matHeaderCellDef>
+          Total with Discount (
+          {{ this.moviesInPromotion().length == 3 ? "20%" : "10%" }} Off)
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{
+            element.product.price * element.quantity
+              | appPromoDiscount : moviesInPromotion().length
+          }}
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumnsDiscount"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumnsDiscount"></tr>
+    </table>
+  </div>
+  }
+  <div class="total-div">
+    <div class="title">
+      <span>Total:</span>
+      <span>{{ totalPrice() | currency }}</span>
+    </div>
+  </div>
+</div>

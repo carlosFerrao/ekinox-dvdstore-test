@@ -1,0 +1,97 @@
+.cart {
+  max-width: 1024px;
+  width: 1024px;
+  padding: 20px;
+  background-color: #ffffff;
+  .movie-poster {
+    width: 100px;
+  }
+  .header {
+    background-color: #ffffff;
+    padding: 20px;
+    .back-div {
+      .back {
+      }
+    }
+    .title-div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .title {
+        font-family: var(--mat-toolbar-title-text-font);
+        font-size: var(--mat-toolbar-title-text-size);
+        line-height: var(--mat-toolbar-title-text-line-height);
+        font-weight: var(--mat-toolbar-title-text-weight);
+        letter-spacing: var(--mat-toolbar-title-text-tracking);
+        font-weight: bold;
+      }
+    }
+  }
+  .discount-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    .discount {
+      font-family: var(--mat-toolbar-title-text-font);
+      font-size: var(--mat-toolbar-title-text-size);
+      line-height: var(--mat-toolbar-title-text-line-height);
+      font-weight: var(--mat-toolbar-title-text-weight);
+      letter-spacing: var(--mat-toolbar-title-text-tracking);
+      font-weight: bold;
+    }
+  }
+  .total-div {
+    display: flex;
+    justify-content: flex-end;
+    .title {
+      display: flex;
+      box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+        rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+        rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+      justify-content: flex-end;
+      padding: 20px;
+    }
+  }
+
+  .quantity {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    border: 2px solid #3498db;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .input-box {
+    width: 40px;
+    text-align: center;
+    border: none;
+    padding: 8px 10px;
+    font-size: 16px;
+    outline: none;
+  }
+
+  .info {
+    margin-top: 8px;
+    font-style: italic;
+  }
+
+  .empty-cart-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+  }
+}
+
+span {
+  font-family: var(--mat-toolbar-title-text-font);
+  font-size: var(--mat-toolbar-title-text-size);
+  line-height: var(--mat-toolbar-title-text-line-height);
+  font-weight: var(--mat-toolbar-title-text-weight);
+  letter-spacing: var(--mat-toolbar-title-text-tracking);
+  font-weight: bold;
+}

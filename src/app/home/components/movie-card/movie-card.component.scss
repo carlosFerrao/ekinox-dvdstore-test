@@ -1,0 +1,28 @@
+.mat-mdc-card-content,
+.mdc-card__actions {
+  background-color: #ffffff;
+}
+
+.mat-mdc-card-content {
+  padding-top: 16px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+}
+
+.card {
+  width: 300px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  height: 680px;
+
+  .poster {
+    width: 280px;
+    height: 390px;
+  }
+
+  .mdc-card__actions {
+    justify-content: flex-end;
+  }
+}

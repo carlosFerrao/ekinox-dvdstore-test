@@ -1,0 +1,16 @@
+<div class="toolbar">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <img class="toolbar-logo" src="./ekinox.svg" />
+      <span class="toolbar-title">Ekinox DVD Store</span>
+      <mat-icon
+        class="toolbar-cart"
+        matBadgeSize="large"
+        matBadge="{{ cartQuantity() }}"
+        matBadgeColor="warn"
+        (click)="goToCart()"
+        >shopping_cart</mat-icon
+      >
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
